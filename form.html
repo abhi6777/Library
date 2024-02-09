@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      .container form {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+      }
+
+      form {
+        max-height: 400px;
+        overflow-y: auto;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="radio"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      .radioButtons {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      input[type="submit"] {
+        height: 2rem;
+        width: 8rem;
+      }
+      body {
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required />
+
+        <label for="pages">Pages:</label>
+        <input type="text" id="pages" name="pages" required />
+
+        <label for="read">Read:</label>
+
+        <div class="radioButtons">
+          <input type="radio" id="read-yes" name="read" value="yes" />
+          <label for="read-yes">Yes</label>
+          <input type="radio" id="read-no" name="read" value="no" />
+          <label for="read-no">No</label>
+        </div>
+
+        <!-- Add more form fields here if needed -->
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>

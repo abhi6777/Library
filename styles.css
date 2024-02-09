@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* .container {
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+} */
+
+.header {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  /* width: 100vw; */
+  padding: 1rem;
+  font-size: 40px;
+  font-weight: bolder;
+  background-color: black;
+  color: aliceblue;
+}
+
+.main {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, auto));
+  gap: 1rem;
+  /* overflow-wrap: normal; */
+  width: 100vw;
+}
+
+.card {
+  height: 19rem;
+  width: 14rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.card button {
+  background-color: rgb(230, 189, 189);
+  padding: 2rem;
+  border: 5px solid white;
+  border-radius: 1rem;
+  font-size: 90px;
+  text-align: center;
+  color: white;
+  /* border-right: 10px solid red;
+  border-bottom: 10px solid red; */
+}
+
+.newCard {
+  width: 14rem;
+  height: 19rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background-color: rgb(235, 221, 126);
+}
+
+.newCard h3,
+.newCard h2 {
+  margin: 0;
+  padding: 5px;
+}
+
+.newCard h2 {
+  color: red;
+  font-weight: bolder;
+}
+
+.buttons {
+  padding-top: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 2rem;
+}
+
+.buttonsRight {
+  padding: 0.7rem;
+  /* border-bottom: 2px solid black; */
+  border-radius: 1rem;
+  height: 2.5rem;
+  width: 5rem;
+  background-color: green;
+  font-weight: bolder;
+}
+
+.buttonsWrong {
+  padding: 0.7rem;
+  /* border-bottom: 2px solid black; */
+  border-radius: 1rem;
+  height: 2.5rem;
+  width: 5rem;
+  background-color: red;
+  font-weight: bolder;
+}
