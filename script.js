@@ -31,10 +31,11 @@ function addBookToLibrary(title, author, pages, read) {
 // Adding some books for test
 // addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 218, "Yes");
 // addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "No");
-// addBookToLibrary("Hello World", "Abhimanyu Mahto", 320, "Yes");
+addBookToLibrary("Hello World", "Abhimanyu Mahto", 320, "Yes");
 
 // function to create new card
 const newCard = (titleA, authorA, pagesA, readA) => {
+  let read_a = readA.toLowerCase();
   let newCard = document.createElement("div");
   newCard.classList.add("newCard");
   mainContainer.appendChild(newCard);
@@ -67,9 +68,9 @@ const newCard = (titleA, authorA, pagesA, readA) => {
   newCard.appendChild(buttons);
 
   const result = () => {
-    if (read === "yes") {
+    if (read_a === "yes") {
       return "buttonsRight";
-    } else {
+    } else if (read_a === "no") {
       return "buttonsWrong";
     }
   };
@@ -77,10 +78,12 @@ const newCard = (titleA, authorA, pagesA, readA) => {
   let read = document.createElement("button");
   read.innerHTML = readA;
   read.classList.add(result());
+  read.id = "readStatus";
   buttons.appendChild(read);
   // Remove
   let remove = document.createElement("button");
   remove.classList.add("buttonsWrong");
+  remove.id = "clear";
   remove.innerHTML = "Remove";
   buttons.appendChild(remove);
 };
@@ -95,10 +98,16 @@ function displayBooks() {
 
 // Form Part
 
+// Clear Form
+function clearInput() {
+  document.getElementById("myForm").reset();
+}
+
 const submitButton = document.querySelector("#Submit");
 
 let titleValue, authorValue, pagesValue, readValue;
 
+// Submission button for new book
 submitButton.addEventListener("click", (event) => {
   // Prevent the default form submission behavior
   event.preventDefault();
@@ -114,6 +123,38 @@ submitButton.addEventListener("click", (event) => {
 
   // Call newCard function to create a new card for the newly added book
   newCard(titleValue, authorValue, pagesValue, readValue);
+
+  // Clear the form input fields
+  clearInput();
 });
 
 displayBooks();
+
+// The read status function status Toggle button
+
+let readStatus = document.querySelector("#readStatus");
+
+readStatus.addEventListener("click", () => {
+  // check if button is green or is buttonRight
+  if (readStatus.classList.contains("buttonRight")) {
+    readStatus.classList.remove("buttonRight");
+    readStatus.classList.add("buttonWrong");
+    readStatus.innerHTML = "No";
+  } else if (readStatus.classList.contains("buttonWrong")) {
+    readStatus.classList.remove("buttonWrong");
+    readStatus.classList.add("buttonRight");
+    readStatus.innerHTML = "Yes";
+  }
+});
+
+// Select the "Remove" button
+let removeButton = document.querySelector("#clear");
+
+// Add event listener to the "Remove" button
+removeButton.addEventListener("click", () => {
+  // Get the parent element of the button (which is the card)
+  let card = removeButton.closest(".newCard");
+  
+  // Remove the card from the DOM
+  card.remove();
+});
