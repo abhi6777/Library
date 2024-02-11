@@ -29,9 +29,9 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 // Adding some books for test
-addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 218, "Yes");
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "No");
-addBookToLibrary("Hello World", "Abhimanyu Mahto", 320, "Yes");
+// addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 218, "Yes");
+// addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "No");
+// addBookToLibrary("Hello World", "Abhimanyu Mahto", 320, "Yes");
 
 // function to create new card
 const newCard = (titleA, authorA, pagesA, readA) => {
@@ -86,10 +86,34 @@ const newCard = (titleA, authorA, pagesA, readA) => {
 };
 
 // Loop to show books
-for (let i = 0; i < myLibrary.length; i++) {
-  let book = myLibrary[i];
-  newCard(book.title, book.author, book.pages, book.read);
+function displayBooks() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    let book = myLibrary[i];
+    newCard(book.title, book.author, book.pages, book.read);
+  }
 }
 
-// pop ing form for getting input for new book
-let openForm = document.querySelector("#openFormButton");
+// Form Part
+
+const submitButton = document.querySelector("#Submit");
+
+let titleValue, authorValue, pagesValue, readValue;
+
+submitButton.addEventListener("click", (event) => {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
+  // Retrieve form values
+  titleValue = document.querySelector("#title").value;
+  authorValue = document.querySelector("#author").value;
+  pagesValue = document.querySelector("#pages").value;
+  readValue = document.querySelector('input[name="read"]:checked').value;
+
+  // Do something with the form values, such as storing them in an array or object
+  addBookToLibrary(titleValue, authorValue, pagesValue, readValue);
+
+  // Call newCard function to create a new card for the newly added book
+  newCard(titleValue, authorValue, pagesValue, readValue);
+});
+
+displayBooks();

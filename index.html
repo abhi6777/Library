@@ -11,14 +11,43 @@
       <div class="header">
         <header>My Library</header>
       </div>
-      <div class="main">
-        <div class="card">
-          <h2>Add New Book</h2>
-          <button id="openFormButton">+</button>
-        </div>
-      </div>
-    </div>
 
+      <!-- Form to add new card -->
+      <div class="form-container">
+        <h1>Add Book</h1>
+        <form action="" method="GET">
+          <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required />
+          </div>
+
+          <div>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required />
+          </div>
+
+          <div>
+            <label for="pages">Pages:</label>
+            <input type="text" id="pages" name="pages" required />
+          </div>
+
+          <div>
+            <label for="read">Read:</label>
+
+            <label for="read-yes">Yes</label>
+            <input type="radio" id="read-yes" name="read" value="yes" />
+            <label for="read-no">No</label>
+            <input type="radio" id="read-no" name="read" value="No" />
+          </div>
+
+          <!-- Add more form fields here if needed -->
+          <input type="submit" value="Submit" id="Submit" />
+        </form>
+      </div>
+
+      <!-- Main container to store all cards dynamically created with js -->
+      <div class="main"></div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
