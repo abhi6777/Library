@@ -29,8 +29,8 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 // Adding some books for test
-// addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 218, "Yes");
-// addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "No");
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 218, "Yes");
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "No");
 addBookToLibrary("Hello World", "Abhimanyu Mahto", 320, "Yes");
 
 // function to create new card
@@ -132,29 +132,29 @@ displayBooks();
 
 // The read status function status Toggle button
 
-let readStatus = document.querySelector("#readStatus");
+mainContainer.addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    // Toggle the "buttonsRight" and "buttonsWrong" classes
+    event.target.classList.toggle("buttonsRight");
+    event.target.classList.toggle("buttonsWrong");
 
-readStatus.addEventListener("click", () => {
-  // check if button is green or is buttonRight
-  if (readStatus.classList.contains("buttonRight")) {
-    readStatus.classList.remove("buttonRight");
-    readStatus.classList.add("buttonWrong");
-    readStatus.innerHTML = "No";
-  } else if (readStatus.classList.contains("buttonWrong")) {
-    readStatus.classList.remove("buttonWrong");
-    readStatus.classList.add("buttonRight");
-    readStatus.innerHTML = "Yes";
+    // Update the innerHTML to reflect the change
+    if (event.target.classList.contains("buttonsRight")) {
+      event.target.innerHTML = "Yes";
+    } else {
+      event.target.innerHTML = "No";
+    }
   }
 });
 
-// Select the "Remove" button
-let removeButton = document.querySelector("#clear");
+// Add event listener to the main container
+mainContainer.addEventListener("click", (event) => {
+  // Check if the clicked element is a "Remove" button
+  if (event.target.matches("#clear")) {
+    // Get the parent element of the button (which is the card)
+    let card = event.target.closest(".newCard");
 
-// Add event listener to the "Remove" button
-removeButton.addEventListener("click", () => {
-  // Get the parent element of the button (which is the card)
-  let card = removeButton.closest(".newCard");
-  
-  // Remove the card from the DOM
-  card.remove();
+    // Remove the card from the DOM
+    card.remove();
+  }
 });
