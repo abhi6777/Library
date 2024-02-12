@@ -15,13 +15,13 @@ This project is a simple library management application that allows users to add
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/my-library-project.git
+git clone https://github.com/abhi6777/Library.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd my-library-project
+cd Liabrary
 ```
 
 3. Open the `index.html` file in your web browser.
