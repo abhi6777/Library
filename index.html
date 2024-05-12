@@ -14,21 +14,21 @@
 
       <!-- Form to add new card -->
       <div class="form-container">
-        <h1>Add Book</h1>
+        <h1>Add New Book</h1>
         <form action="" method="GET" id="myForm">
           <div>
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required />
+            <input type="text" id="title" name="title" required minlength="2" />
           </div>
 
           <div>
             <label for="author">Author:</label>
-            <input type="text" id="author" name="author" required />
+            <input type="text" id="author" name="author" required minlength="4" />
           </div>
 
           <div>
             <label for="pages">Pages:</label>
-            <input type="number" id="pages" name="pages" required />
+            <input type="number" id="pages" name="pages" required min="2" />
           </div>
 
           <div>
@@ -40,7 +40,6 @@
             <input type="radio" id="read-no" name="read" value="No" />
           </div>
 
-          <!-- Add more form fields here if needed -->
           <input type="submit" value="Submit" id="Submit" />
         </form>
       </div>
